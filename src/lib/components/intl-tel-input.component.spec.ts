@@ -174,8 +174,7 @@ describe('IntlTelInputComponent', () => {
 
         component.options = {
             preferredCountries: ['se'],
-            onlyCountries: ['se'],
-            localizedCountries: null
+            onlyCountries: ['se']
         };
         component.onlyLocalized = true;
         component.ngAfterViewInit();
