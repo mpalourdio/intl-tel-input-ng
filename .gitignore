@@ -1,0 +1,11 @@
+node_modules/*
+npm-debug.log
+yarn-error.log
+*.map
+**/*.ngfactory.ts
+tmp
+*.iml
+dist
+coverage
+.idea/
+out-tsc

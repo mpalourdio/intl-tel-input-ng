@@ -1,0 +1,13 @@
+<label [attr.for]="name" *ngIf="label && name">{{label}}</label>
+<input
+    type="text"
+    [ngClass]="cssClass"
+    [attr.id]="name"
+    [attr.name]="name"
+    [name]="name"
+    [attr.aria-required]="required || null"
+    [attr.required]="required ? 'required' : null"
+    [(ngModel)]="phoneNumber"
+    (countrychange)="i18nizePhoneNumber()"
+    #intlTelInput>
+
