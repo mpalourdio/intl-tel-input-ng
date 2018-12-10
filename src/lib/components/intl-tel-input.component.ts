@@ -11,6 +11,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ControlContainer, NgForm } from '@angular/forms';
 import * as intlTelInput from 'intl-tel-input';
+import { IntlTelInputOptions } from '../model/intl-tel-input-options';
 
 @Component({
     selector: 'intl-tel-input',
@@ -39,7 +40,7 @@ export class IntlTelInputComponent implements AfterViewInit {
     public onlyLocalized: boolean;
 
     @Input()
-    public options: object = {};
+    public options: IntlTelInputOptions = {};
 
     @Output()
     private E164PhoneNumberChange = new EventEmitter<string>();
