@@ -22,7 +22,10 @@ It's an angular component to easily integrate [intl-tel-input](https://github.co
 To install this library, run:
 
 ```bash
+# install intl-tel-input
 $ npm install intl-tel-input --save / yarn add intl-tel-input
+
+# install this module
 $ npm install intl-tel-input-ng --save / yarn add intl-tel-input-ng
 ```
 
@@ -31,10 +34,10 @@ $ npm install intl-tel-input-ng --save / yarn add intl-tel-input-ng
 - Import ``IntlTelInputNgModule.forRoot()`` in your main application module.
 
 ## Options
- - `options`: An object representing the `intl-tel-input` [options](https://github.com/jackocnr/intl-tel-input#options).
+ - `options`: An object wrapping the `intl-tel-input` [options](https://github.com/jackocnr/intl-tel-input#options).
  - `onlyLocalized`: If `true`, displays only localized country data. See [here](https://intl-tel-input.com/node_modules/intl-tel-input/examples/gen/modify-country-data.html).
- - `label`: If provided, will generate a `label` for the input (if the name option is set too).
- - `name`: Sets `name` and `id` attributes for the input. Default is `intl-tel-input-name`.
+ - `label`: If specified, will generate a `label` for the input (if the name option is set too).
+ - `name`: Sets `name` and `id` attributes for the input. The default value is `intl-tel-input-name`.
  - `cssClass`: The CSS class used to style the input component.
  - `required`: Sets the `required` && `aria-required` attributes for the input.
  - `[(E164PhoneNumber)]`: Outputs the phone number in E164 format if valid.
