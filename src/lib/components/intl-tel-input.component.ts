@@ -63,7 +63,7 @@ export class IntlTelInputComponent implements AfterViewInit {
     }
 
     private modifyCountryData(): void {
-        const countryData = (<any>window)['intlTelInputGlobals'].getCountryData();
+        const countryData = (<any>window).intlTelInputGlobals.getCountryData();
         for (let i = 0; i < countryData.length; i++) {
             const country = countryData[i];
             country.name = country.name.replace(/.+\((.+)\)/, '$1');
