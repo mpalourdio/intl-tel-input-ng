@@ -42,8 +42,10 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should convert phone number to E164 format', () => {
-        component.preferredCountries = ['ch'];
-        component.countryCodes = ['ch', 'fr'];
+        component.options = {
+            preferredCountries: ['ch'],
+            onlyCountries: ['ch', 'fr']
+        };
         component.ngAfterViewInit();
 
         component.phoneNumber = '0797703808';
@@ -52,8 +54,10 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should re-set E164 phone number on countryChange', () => {
-        component.preferredCountries = ['ch'];
-        component.countryCodes = ['ch', 'fr'];
+        component.options = {
+            preferredCountries: ['ch'],
+            onlyCountries: ['ch', 'fr']
+        };
         component.ngAfterViewInit();
 
         component.phoneNumber = '0797703808';
@@ -125,8 +129,10 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should be possible to set preferredCountries option', () => {
-        component.preferredCountries = ['ch'];
-        component.countryCodes = ['ch'];
+        component.options = {
+            preferredCountries: ['ch'],
+            onlyCountries: ['ch']
+        };
         component.ngAfterViewInit();
 
         fixture.detectChanges();
@@ -138,15 +144,16 @@ describe('IntlTelInputComponent', () => {
             .parentNode
             .querySelector('.preferred');
 
-        expect(element.getAttribute('data-country-code')).toBe(component.countryCodes[0]);
+        expect(element.getAttribute('data-country-code')).toBe(component.options['onlyCountries'][0]);
     });
 
     it('should be possible to set localizedCountries option', () => {
         const localizedCountryName = 'Suisse';
-
-        component.preferredCountries = ['ch'];
-        component.localizedCountries = { ch: localizedCountryName };
-        component.countryCodes = ['ch'];
+        component.options = {
+            preferredCountries: ['ch'],
+            localizedCountries: { ch: localizedCountryName },
+            onlyCountries: ['ch']
+        };
         component.ngAfterViewInit();
 
         fixture.detectChanges();
@@ -159,5 +166,29 @@ describe('IntlTelInputComponent', () => {
             .querySelector('.country-name');
 
         expect(element.innerHTML).toBe(localizedCountryName);
+    });
+
+    it('should be possible to set localizedOnly option', () => {
+        // country data is window global, and any modification is persistent between tests....
+        // so we choose another country than CH (because used in another spec)
+
+        component.options = {
+            preferredCountries: ['se'],
+            onlyCountries: ['se'],
+            localizedCountries: null
+        };
+        component.onlyLocalized = true;
+        component.ngAfterViewInit();
+
+        fixture.detectChanges();
+
+        const element = fixture
+            .debugElement
+            .query(By.css('#intl-tel-input-name'))
+            .nativeElement
+            .parentNode
+            .querySelector('.country-name');
+
+        expect(element.innerHTML).toBe('Sverige');
     });
 });

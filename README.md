@@ -31,16 +31,15 @@ $ npm install intl-tel-input-ng --save / yarn add intl-tel-input-ng
 It's an angular component to easily integrate [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
 
 ## Options
+ - `options`: An object representing the `intl-tel-input` [options](https://github.com/jackocnr/intl-tel-input#options).
+ - `onlyLocalized`: If `true`, displays only localized country data. See [here](https://intl-tel-input.com/node_modules/intl-tel-input/examples/gen/modify-country-data.html).
  - `label`: If provided, will generate a `label` for the input (if the name option is set too).
  - `name`: Sets `name` and `id` attributes for the input.
  - `cssClass`: The CSS class used to style the input component.
  - `required`: Sets the `required` && `aria-required` attributes for the input.
- - `countryCodes`: List of availables country codes to display.
- - `preferredCountries` (array): Sets the preferred countries.
- - `localizedCountries` (object, ie. {}): Sets the localized countries if needed.
  - `[(E164PhoneNumber)]`: Outputs the phone number in E164 format if valid.
- 
-See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) for documentation.
+
+See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) for more documentation.
 
  ## Example:
  
@@ -50,8 +49,11 @@ See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) 
         [name]="'my-name'"
         [cssClass]="'form-control'"
         [required]="true"
-        [countryCodes]="['fr', 'ch']"
-        [preferredCountries]="['ch']"
-        [localizedCountries]="{ ch: 'Suisse' }"
+        [options]="{
+            preferredCountries: ['ch'],
+            localizedCountries: { ch: 'Suisse' },
+            onlyCountries: ['fr', 'ch']
+        }"
+        [onlyLocalized]="true"
         [(E164PhoneNumber)]="E164PhoneNumber"></intl-tel-input>
 ```

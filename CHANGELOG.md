@@ -1,9 +1,9 @@
 # Changelog
 
-## v0.1.0 (unreleased)
+## v0.0.2
 
-This is the first release of this module. All options available in [intl-tel-input](https://github.com/jackocnr/intl-tel-input) are not accessible at the moment.  
-Please, refer to the [README](README.md) to see the options.
+Pass an `option` object as `Input()` for `intl-tel-input` module, so we don't have to provide multiple `@Input()`.  
+Please, refer to the [README](README.md) to see the component's options.
 
 ## v0.0.1
 
