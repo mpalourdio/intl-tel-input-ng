@@ -13,6 +13,10 @@
 
 Use the fork, Luke. PR without tests will likely not be merged.
 
+## What is it ?
+
+It's an angular component to easily integrate [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
+
 ## Installation
 
 To install this library, run:
@@ -26,25 +30,23 @@ $ npm install intl-tel-input-ng --save / yarn add intl-tel-input-ng
 - Add `node_modules/intl-tel-input/build/css/intlTelInput.css` to the `styles` section in your `angular.json`.
 - Import ``IntlTelInputNgModule.forRoot()`` in your main application module.
 
-## What is it ?
-
-It's an angular component to easily integrate [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
-
 ## Options
  - `options`: An object representing the `intl-tel-input` [options](https://github.com/jackocnr/intl-tel-input#options).
  - `onlyLocalized`: If `true`, displays only localized country data. See [here](https://intl-tel-input.com/node_modules/intl-tel-input/examples/gen/modify-country-data.html).
  - `label`: If provided, will generate a `label` for the input (if the name option is set too).
- - `name`: Sets `name` and `id` attributes for the input.
+ - `name`: Sets `name` and `id` attributes for the input. Default is `intl-tel-input-name`.
  - `cssClass`: The CSS class used to style the input component.
  - `required`: Sets the `required` && `aria-required` attributes for the input.
  - `[(E164PhoneNumber)]`: Outputs the phone number in E164 format if valid.
 
 See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) for more documentation.
 
- ## Example:
+## Example:
+**The component must be declared between `<form>` tags !**
  
  ```xml
-  <intl-tel-input
+<form #form="ngForm">
+    <intl-tel-input
         [label]="'Please enter your phone number'"
         [name]="'my-name'"
         [cssClass]="'form-control'"
@@ -56,4 +58,5 @@ See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) 
         }"
         [onlyLocalized]="true"
         [(E164PhoneNumber)]="E164PhoneNumber"></intl-tel-input>
+</form>     
 ```
