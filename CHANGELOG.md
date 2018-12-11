@@ -1,7 +1,7 @@
 # Changelog
 
 
-## v0.0.4 (unreleased)
+## v0.0.4
 
 - `[attr.required]` has been changed to `[required]`. The built-in [validator](https://angular.io/api/forms/RequiredValidator) was not triggered.
 
