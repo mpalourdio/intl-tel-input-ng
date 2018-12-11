@@ -101,7 +101,7 @@ describe('IntlTelInputComponent', () => {
             .query(By.css('input'))
             .nativeElement;
 
-        expect(element.getAttribute('required')).toBe('required');
+        expect(element.getAttribute('required')).not.toBeNull();
         expect(element.getAttribute('aria-required')).toBe('true');
     });
 
