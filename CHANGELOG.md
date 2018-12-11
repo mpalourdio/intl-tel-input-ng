@@ -1,5 +1,10 @@
 # Changelog
 
+
+## v0.0.4 (unreleased)
+
+- `[attr.required]` has been changed to `[required]`. The built-in [validator](https://angular.io/api/forms/RequiredValidator) was not triggered.
+
 ## v0.0.3
 
 - Added an `IntlTelInputOptions` interface (meh) for better IDE support when setting `intl-tel-input` options.  
