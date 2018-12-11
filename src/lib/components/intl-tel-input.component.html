@@ -6,7 +6,7 @@
     [attr.name]="name"
     [name]="name"
     [attr.aria-required]="required || null"
-    [attr.required]="required ? 'required' : null"
+    [required]="required"
     [(ngModel)]="phoneNumber"
     (countrychange)="i18nizePhoneNumber()"
     #intlTelInput>
