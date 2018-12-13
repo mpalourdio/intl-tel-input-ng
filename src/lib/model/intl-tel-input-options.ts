@@ -143,14 +143,14 @@ export interface IntlTelInputOptions {
     utilsScript?: string;
 }
 
-declare namespace intlTelInputUtils {
-    interface CountryData {
+export namespace intlTelInputUtils {
+    export interface CountryData {
         name: string;
         iso2: string;
         dialCode: string;
     }
 
-    type placeholderNumberType =
+    export type placeholderNumberType =
         | 'FIXED_LINE_OR_MOBILE'
         | 'FIXED_LINE'
         | 'MOBILE'
