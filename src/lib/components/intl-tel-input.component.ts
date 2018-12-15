@@ -51,6 +51,14 @@ export class IntlTelInputComponent implements AfterViewInit {
     private _phoneNumber: string;
     private _intlTelInput: any;
 
+    private static modifyCountryData(): void {
+        const countryData: intlTelInputUtils.CountryData[] = (<any>window).intlTelInputGlobals.getCountryData();
+        for (let i = 0; i < countryData.length; i++) {
+            const country = countryData[i];
+            country.name = country.name.replace(/.+\((.+)\)/, '$1');
+        }
+    }
+
     ngAfterViewInit(): void {
         const phoneElement = (<ElementRef>this._inputElement).nativeElement;
         const options = this.options;
@@ -61,14 +69,6 @@ export class IntlTelInputComponent implements AfterViewInit {
 
         const intlTelInputInstance = intlTelInput;
         this._intlTelInput = intlTelInputInstance(phoneElement, options);
-    }
-
-    private static modifyCountryData(): void {
-        const countryData: intlTelInputUtils.CountryData[] = (<any>window).intlTelInputGlobals.getCountryData();
-        for (let i = 0; i < countryData.length; i++) {
-            const country = countryData[i];
-            country.name = country.name.replace(/.+\((.+)\)/, '$1');
-        }
     }
 
     get intlTelInput(): any {
