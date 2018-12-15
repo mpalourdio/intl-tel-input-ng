@@ -56,14 +56,14 @@ export class IntlTelInputComponent implements AfterViewInit {
         const options = this.options;
 
         if (this.onlyLocalized) {
-            this.modifyCountryData();
+            IntlTelInputComponent.modifyCountryData();
         }
 
         const intlTelInputInstance = intlTelInput;
         this._intlTelInput = intlTelInputInstance(phoneElement, options);
     }
 
-    private modifyCountryData(): void {
+    private static modifyCountryData(): void {
         const countryData: intlTelInputUtils.CountryData[] = (<any>window).intlTelInputGlobals.getCountryData();
         for (let i = 0; i < countryData.length; i++) {
             const country = countryData[i];
