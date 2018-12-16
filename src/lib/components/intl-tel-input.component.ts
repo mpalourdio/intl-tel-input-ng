@@ -17,7 +17,7 @@ import { IntlTelInputOptions, intlTelInputUtils } from '../model/intl-tel-input-
     selector: 'intl-tel-input',
     templateUrl: './intl-tel-input.component.html',
     styleUrls: ['./intl-tel-input.component.scss'],
-    viewProviders: [{ provide: ControlContainer, useExisting: NgForm }]
+    viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
 })
 export class IntlTelInputComponent implements AfterViewInit {
 
