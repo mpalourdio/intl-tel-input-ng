@@ -12,6 +12,7 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, View
 import { ControlContainer, NgForm } from '@angular/forms';
 import * as intlTelInput from 'intl-tel-input';
 import { IntlTelInputOptions, intlTelInputUtils } from '../model/intl-tel-input-options';
+import CountryData = intlTelInputUtils.CountryData;
 
 @Component({
     selector: 'intl-tel-input',
@@ -52,11 +53,8 @@ export class IntlTelInputComponent implements AfterViewInit {
     private _intlTelInput: any;
 
     private static modifyCountryData(): void {
-        const countryData: intlTelInputUtils.CountryData[] = (<any>window).intlTelInputGlobals.getCountryData();
-        for (let i = 0; i < countryData.length; i++) {
-            const country = countryData[i];
-            country.name = country.name.replace(/.+\((.+)\)/, '$1');
-        }
+        (<any>window).intlTelInputGlobals.getCountryData().forEach((country: CountryData) =>
+            country.name = country.name.replace(/.+\((.+)\)/, '$1'));
     }
 
     ngAfterViewInit(): void {
