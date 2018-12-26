@@ -22,33 +22,15 @@ import CountryData = intlTelInputUtils.CountryData;
 })
 export class IntlTelInputComponent implements AfterViewInit {
 
-    @Input()
-    public E164PhoneNumber: string;
-
-    @Input()
-    public label: string;
-
-    @Input()
-    public name = 'intl-tel-input-name';
-
-    @Input()
-    public required: boolean;
-
-    @Input()
-    public cssClass: string;
-
-    @Input()
-    public onlyLocalized: boolean;
-
-    @Input()
-    public options: IntlTelInputOptions = {};
-
-    @Output()
-    private E164PhoneNumberChange = new EventEmitter<string>();
-
-    @ViewChild('intlTelInput')
-    private _inputElement: any;
-
+    @Input() public E164PhoneNumber: string;
+    @Input() public label: string;
+    @Input() public name = 'intl-tel-input-name';
+    @Input() public required: boolean;
+    @Input() public cssClass: string;
+    @Input() public onlyLocalized: boolean;
+    @Input() public options: IntlTelInputOptions = {};
+    @Output() private E164PhoneNumberChange = new EventEmitter<string>();
+    @ViewChild('intlTelInput') private _inputElement: any;
     private _phoneNumber: string;
     private _intlTelInput: any;
 
