@@ -25,7 +25,7 @@ import { IntlTelInputComponent } from './components/intl-tel-input.component';
     ],
 })
 export class IntlTelInputNgModule {
-    static forRoot(): ModuleWithProviders {
+    public static forRoot(): ModuleWithProviders {
         return {
             ngModule: IntlTelInputNgModule,
             providers: [],

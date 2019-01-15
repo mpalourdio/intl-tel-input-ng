@@ -39,7 +39,7 @@ export class IntlTelInputComponent implements AfterViewInit {
             country.name = country.name.replace(/.+\((.+)\)/, '$1'));
     }
 
-    ngAfterViewInit(): void {
+    public ngAfterViewInit(): void {
         const phoneElement = (<ElementRef>this._inputElement).nativeElement;
         const options = this.options;
 
