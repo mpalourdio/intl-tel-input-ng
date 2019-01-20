@@ -39,6 +39,7 @@ $ npm install intl-tel-input-ng --save / yarn add intl-tel-input-ng
  - `label`: If specified, will generate a `label` for the input (if the name option is set too).
  - `name`: Sets `name` and `id` attributes for the input. The default value is `intl-tel-input-name`.
  - `cssClass`: The CSS class used to style the input component.
+ - `labelCssClass`: The CSS class used to style the label associated to the input.
  - `required`: Sets the `required` && `aria-required` attributes for the input.
  - `[(E164PhoneNumber)]`: Outputs the phone number in E164 format if valid.
 
