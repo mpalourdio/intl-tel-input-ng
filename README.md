@@ -54,6 +54,7 @@ See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) 
         [label]="'Please enter your phone number'"
         [name]="'my-name'"
         [cssClass]="'form-control'"
+        [labelCssClass]="'col-sm-2 col-form-label'"
         [required]="true"
         [options]="{
             preferredCountries: ['ch'],
