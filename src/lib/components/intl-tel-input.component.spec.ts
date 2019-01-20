@@ -105,7 +105,20 @@ describe('IntlTelInputComponent', () => {
         expect(element.getAttribute('aria-required')).toBe('true');
     });
 
+    it('should set a default name attribute if not specified', () => {
+        const element: HTMLElement = fixture
+            .debugElement
+            .query(By.css('input'))
+            .nativeElement;
+
+        expect(element.getAttribute('name')).toBe(component.name);
+        expect(element.getAttribute('name')).toBe(element.getAttribute('id'));
+    });
+
     it('should set name and id to the same value', () => {
+        component.name = 'custom-name';
+        fixture.detectChanges();
+
         const element: HTMLElement = fixture
             .debugElement
             .query(By.css('input'))
