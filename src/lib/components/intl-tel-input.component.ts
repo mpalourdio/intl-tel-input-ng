@@ -24,6 +24,7 @@ export class IntlTelInputComponent implements AfterViewInit {
 
     @Input() public E164PhoneNumber: string;
     @Input() public label: string;
+    @Input() public labelCssClass: string;
     @Input() public name = 'intl-tel-input-name';
     @Input() public required: boolean;
     @Input() public cssClass: string;

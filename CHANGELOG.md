@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.0.5
+
+- Added possibility to customize the label's css class via the `labelCssClass` `@Input()`.
 
 ## v0.0.4
 

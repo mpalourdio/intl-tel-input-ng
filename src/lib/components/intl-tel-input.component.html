@@ -1,4 +1,4 @@
-<label [attr.for]="name" *ngIf="label && name">{{label}}</label>
+<label [attr.for]="name" [ngClass]="labelCssClass" *ngIf="label && name" >{{label}}</label>
 <input
     type="text"
     [ngClass]="cssClass"

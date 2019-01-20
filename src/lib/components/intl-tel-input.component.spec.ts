@@ -92,6 +92,31 @@ describe('IntlTelInputComponent', () => {
         expect(element).toBe(null);
     });
 
+    it('should not have a css class by default for the label', () => {
+        component.label = 'label';
+        fixture.detectChanges();
+
+        const element = fixture
+            .debugElement
+            .query(By.css('label'))
+            .nativeElement;
+
+        expect(element.className).toBeFalsy();
+    });
+
+    it('should be possible to specify a css class for the label', () => {
+        component.label = 'label';
+        component.labelCssClass = 'label-css-class';
+        fixture.detectChanges();
+
+        const element = fixture
+            .debugElement
+            .query(By.css('label'))
+            .nativeElement;
+
+        expect(element.className).toContain(component.labelCssClass);
+    });
+
     it('should set both required and aria-required if specified', () => {
         component.required = true;
         fixture.detectChanges();
