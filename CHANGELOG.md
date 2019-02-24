@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.6
+
+- Bump `intl-tel-input` dependency to `^15.0.0`.
+
 ## v0.0.5
 
 - Added possibility to customize the label's css class via the `labelCssClass` `@Input()`.
