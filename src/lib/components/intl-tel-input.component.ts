@@ -7,7 +7,6 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/// <reference path="../@types/intl-tel-input/index.d.ts" />
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ControlContainer, NgForm } from '@angular/forms';
 import * as intlTelInput from 'intl-tel-input';
@@ -31,25 +30,22 @@ export class IntlTelInputComponent implements AfterViewInit {
     @Input() public options: IntlTelInputOptions = {};
     @Input() public required: boolean;
     @Output() private E164PhoneNumberChange = new EventEmitter<string>();
-    @ViewChild('intlTelInput') private _inputElement: any;
+    @ViewChild('intlTelInput', { static: false }) private _inputElement: ElementRef;
     private _phoneNumber: string;
     private _intlTelInput: any;
 
     private static modifyCountryData(): void {
-        (<any>window).intlTelInputGlobals.getCountryData().forEach((country: CountryData) =>
+        (window as any).intlTelInputGlobals.getCountryData().forEach((country: CountryData) =>
             country.name = country.name.replace(/.+\((.+)\)/, '$1'));
     }
 
     public ngAfterViewInit(): void {
-        const phoneElement = (<ElementRef>this._inputElement).nativeElement;
-        const options = this.options;
-
         if (this.onlyLocalized) {
             IntlTelInputComponent.modifyCountryData();
         }
 
         const intlTelInputInstance = intlTelInput;
-        this._intlTelInput = intlTelInputInstance(phoneElement, options);
+        this._intlTelInput = intlTelInputInstance(this._inputElement.nativeElement, this.options);
     }
 
     get intlTelInput(): any {

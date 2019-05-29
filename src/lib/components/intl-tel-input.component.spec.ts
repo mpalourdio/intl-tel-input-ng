@@ -182,7 +182,7 @@ describe('IntlTelInputComponent', () => {
             .parentNode
             .querySelector('.preferred');
 
-        expect(element.getAttribute('data-country-code')).toBe(component.options['onlyCountries'][0]);
+        expect(element.getAttribute('data-country-code')).toBe(component.options.onlyCountries[0]);
     });
 
     it('should be possible to set localizedCountries option', () => {

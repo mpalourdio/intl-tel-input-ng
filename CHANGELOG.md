@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.7
+
+- `angular 8` migration.
+
 ## v0.0.6
 
 - Bump `intl-tel-input` dependency to `^15.0.0`.
