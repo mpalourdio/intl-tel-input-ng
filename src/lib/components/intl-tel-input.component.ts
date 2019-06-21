@@ -57,8 +57,10 @@ export class IntlTelInputComponent implements AfterViewInit {
     }
 
     set phoneNumber(value: string) {
+        if (!!value) {
+            this._intlTelInput.setNumber(value);
+        }
         this._phoneNumber = value;
-        this._intlTelInput.setNumber(value);
         this.i18nizePhoneNumber();
     }
 
