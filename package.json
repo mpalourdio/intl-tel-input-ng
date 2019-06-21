@@ -33,10 +33,10 @@
     "url": "https://github.com/mpalourdio/intl-tel-input-ng/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0",
-    "@angular/forms": "^8.0.0",
-    "intl-tel-input": "^15.0.0"
+    "@angular/common": "^7.0.0 | ^8.0.0",
+    "@angular/core": "^7.0.0 | ^8.0.0",
+    "@angular/forms": "^7.0.0 | ^8.0.0",
+    "intl-tel-input": "^7.0.0 | ^15.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.0",
