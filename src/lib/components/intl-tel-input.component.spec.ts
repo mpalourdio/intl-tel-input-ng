@@ -180,7 +180,7 @@ describe('IntlTelInputComponent', () => {
             .query(By.css('#intl-tel-input-name'))
             .nativeElement
             .parentNode
-            .querySelector('.preferred');
+            .querySelector('.iti__preferred');
 
         expect(element.getAttribute('data-country-code')).toBe(component.options.onlyCountries[0]);
     });
@@ -201,7 +201,7 @@ describe('IntlTelInputComponent', () => {
             .query(By.css('#intl-tel-input-name'))
             .nativeElement
             .parentNode
-            .querySelector('.country-name');
+            .querySelector('.iti__country-name');
 
         expect(element.innerHTML).toBe(localizedCountryName);
     });
@@ -224,7 +224,7 @@ describe('IntlTelInputComponent', () => {
             .query(By.css('#intl-tel-input-name'))
             .nativeElement
             .parentNode
-            .querySelector('.country-name');
+            .querySelector('.iti__country-name');
 
         expect(element.innerHTML).toBe('Sverige');
     });
