@@ -37,8 +37,8 @@
     "@angular/common": "^9.0.0-rc.6",
     "@angular/core": "^9.0.0-rc.6",
     "@angular/forms": "^9.0.0-rc.6",
-    "tslib": "^1.10.0",
-    "intl-tel-input": "^16.0.0"
+    "intl-tel-input": "^16.0.0",
+    "tslib": "^1.10.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.0-rc.6",
