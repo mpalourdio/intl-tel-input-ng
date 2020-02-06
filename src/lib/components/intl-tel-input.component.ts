@@ -30,7 +30,7 @@ export class IntlTelInputComponent implements AfterViewInit {
     @Input() public options: IntlTelInputOptions = {};
     @Input() public required: boolean;
     @Output() private E164PhoneNumberChange = new EventEmitter<string>();
-    @ViewChild('intlTelInput', { static: false }) private _inputElement: ElementRef;
+    @ViewChild('intlTelInput') private _inputElement: ElementRef;
     private _phoneNumber: string;
     private _intlTelInput: any;
 
