@@ -37,7 +37,7 @@
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "@angular/forms": "^9.1.0",
-    "intl-tel-input": "^16.0.0",
+    "intl-tel-input": "^17.0.0",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
@@ -57,7 +57,7 @@
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
     "coveralls": "^3.0.1",
-    "intl-tel-input": "^16.0.0",
+    "intl-tel-input": "^17.0.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~5.0.2",
