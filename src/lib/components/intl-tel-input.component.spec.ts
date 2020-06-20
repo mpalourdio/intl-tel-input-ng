@@ -26,7 +26,7 @@ describe('IntlTelInputComponent', () => {
             ],
             providers: [
                 NgForm,
-            ],
+            ]
         })
             .compileComponents();
     }));

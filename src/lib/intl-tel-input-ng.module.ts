@@ -22,13 +22,13 @@ import { IntlTelInputComponent } from './components/intl-tel-input.component';
     ],
     exports: [
         IntlTelInputComponent,
-    ],
+    ]
 })
 export class IntlTelInputNgModule {
     public static forRoot(): ModuleWithProviders<IntlTelInputNgModule> {
         return {
             ngModule: IntlTelInputNgModule,
-            providers: [],
+            providers: []
         };
     }
 }
