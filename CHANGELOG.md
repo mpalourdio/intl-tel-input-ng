@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.0
+
+- `angular 10` migration.
+
 ## v0.1.0
 
 - `angular 9` migration.

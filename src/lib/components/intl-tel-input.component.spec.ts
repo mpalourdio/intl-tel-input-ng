@@ -89,7 +89,7 @@ describe('IntlTelInputComponent', () => {
             .debugElement
             .query(By.css('label'));
 
-        expect(element).toBe(null);
+        expect(element).toBeNull();
     });
 
     it('should not have a css class by default for the label', () => {
@@ -182,7 +182,7 @@ describe('IntlTelInputComponent', () => {
             .parentNode
             .querySelector('.iti__preferred');
 
-        expect(element.getAttribute('data-country-code')).toBe(component.options.onlyCountries[0]);
+        expect(element.getAttribute('data-country-code')).toBe(component.options.onlyCountries?.[0]);
     });
 
     it('should be possible to set localizedCountries option', () => {

@@ -20,17 +20,17 @@ import { CountryData, IntlTelInputOptions } from '../model/intl-tel-input-option
 })
 export class IntlTelInputComponent implements AfterViewInit {
 
-    @Input() public cssClass: string;
-    @Input() public E164PhoneNumber: string;
-    @Input() public label: string;
-    @Input() public labelCssClass: string;
+    @Input() public cssClass!: string;
+    @Input() public E164PhoneNumber!: string | null;
+    @Input() public label!: string;
+    @Input() public labelCssClass!: string;
     @Input() public name = 'intl-tel-input-name';
-    @Input() public onlyLocalized: boolean;
+    @Input() public onlyLocalized!: boolean;
     @Input() public options: IntlTelInputOptions = {};
-    @Input() public required: boolean;
-    @Output() private E164PhoneNumberChange = new EventEmitter<string>();
-    @ViewChild('intlTelInput') private _inputElement: ElementRef;
-    private _phoneNumber: string;
+    @Input() public required!: boolean;
+    @Output() private E164PhoneNumberChange = new EventEmitter<string | null>();
+    @ViewChild('intlTelInput') private _inputElement!: ElementRef;
+    private _phoneNumber!: string;
     private _intlTelInput: any;
 
     private static modifyCountryData(): void {
