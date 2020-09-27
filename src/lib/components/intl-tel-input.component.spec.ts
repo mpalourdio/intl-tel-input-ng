@@ -16,8 +16,8 @@ describe('IntlTelInputComponent', () => {
     let component: IntlTelInputComponent;
     let fixture: ComponentFixture<IntlTelInputComponent>;
 
-    beforeEach(waitForAsync(() => {
-        TestBed.configureTestingModule({
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
             declarations: [
                 IntlTelInputComponent,
             ],
@@ -29,7 +29,7 @@ describe('IntlTelInputComponent', () => {
             ]
         })
             .compileComponents();
-    }));
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(IntlTelInputComponent);
