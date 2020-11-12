@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.0
+
+- `angular 11` migration.
+
 ## v0.2.0
 
 - `angular 10` migration.
