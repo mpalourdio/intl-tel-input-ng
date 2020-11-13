@@ -1,6 +1,6 @@
 # intl-tel-input-ng
 
-[![Build Status](https://travis-ci.org/mpalourdio/intl-tel-input-ng.svg?branch=master)](https://travis-ci.org/mpalourdio/intl-tel-input-ng)
+![Build Status](https://github.com/mpalourdio/intl-tel-input-ng/workflows/CI/badge.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/mpalourdio/intl-tel-input-ng/badge.svg?branch=master)](https://coveralls.io/github/mpalourdio/intl-tel-input-ng?branch=master)
 [![npm](https://img.shields.io/npm/v/intl-tel-input-ng.svg)](https://www.npmjs.com/package/intl-tel-input-ng)
 [![npm](https://img.shields.io/npm/dm/intl-tel-input-ng.svg)](https://www.npmjs.com/package/intl-tel-input-ng)
