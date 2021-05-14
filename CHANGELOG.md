@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.0
+
+- `angular 12` migration.
+- BC break: The library is not `view-engine`compatible anymore.
+
 ## v0.3.0
 
 - `angular 11` migration.
