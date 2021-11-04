@@ -20,14 +20,14 @@ import { CountryData, IntlTelInputOptions } from '../model/intl-tel-input-option
 })
 export class IntlTelInputComponent implements AfterViewInit {
 
-    @Input() public cssClass!: string;
-    @Input() public E164PhoneNumber!: string | null;
-    @Input() public label!: string;
-    @Input() public labelCssClass!: string;
-    @Input() public name = 'intl-tel-input-name';
-    @Input() public onlyLocalized!: boolean;
-    @Input() public options: IntlTelInputOptions = {};
-    @Input() public required!: boolean;
+    @Input() cssClass!: string;
+    @Input() E164PhoneNumber!: string | null;
+    @Input() label!: string;
+    @Input() labelCssClass!: string;
+    @Input() name = 'intl-tel-input-name';
+    @Input() onlyLocalized!: boolean;
+    @Input() options: IntlTelInputOptions = {};
+    @Input() required!: boolean;
     @Output() private E164PhoneNumberChange = new EventEmitter<string | null>();
     @ViewChild('intlTelInput') private _inputElement!: ElementRef;
     private _phoneNumber!: string;
@@ -38,7 +38,7 @@ export class IntlTelInputComponent implements AfterViewInit {
             country.name = country.name.replace(/.+\((.+)\)/, '$1'));
     }
 
-    public ngAfterViewInit(): void {
+    ngAfterViewInit(): void {
         if (this.onlyLocalized) {
             IntlTelInputComponent.modifyCountryData();
         }
@@ -63,7 +63,7 @@ export class IntlTelInputComponent implements AfterViewInit {
         this.i18nizePhoneNumber();
     }
 
-    public i18nizePhoneNumber(): void {
+    i18nizePhoneNumber(): void {
         this.E164PhoneNumber = null;
         if (this._intlTelInput.isValidNumber()) {
             this.E164PhoneNumber = this._intlTelInput.getNumber();
