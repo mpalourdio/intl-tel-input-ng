@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.1
+
+- Fix after ng-packagr removal of UMD support.
+
 ## v0.5.0
 
 - `angular 13` migration.

@@ -9,7 +9,7 @@
 
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ControlContainer, NgForm } from '@angular/forms';
-import * as intlTelInput from 'intl-tel-input';
+import intlTelInput from 'intl-tel-input';
 import { CountryData, IntlTelInputOptions } from '../model/intl-tel-input-options';
 
 @Component({
