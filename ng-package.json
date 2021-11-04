@@ -2,9 +2,6 @@
   "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
   "dest": "./dist",
   "lib": {
-    "entryFile": "./src/public_api.ts",
-    "umdModuleIds": {
-      "intl-tel-input": "intlTelInput"
-    }
+    "entryFile": "./src/public_api.ts"
   }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.0
+
+- `angular 13` migration.
+
 ## v0.4.0
 
 - `angular 12` migration.
