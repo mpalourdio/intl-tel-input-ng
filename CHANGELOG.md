@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.0
+
+- `angular 15` migration.
+- 
 ## v0.6.0
 
 - `angular 14` migration.
