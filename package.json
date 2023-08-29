@@ -36,7 +36,7 @@
     "@angular/common": "^16.0.0",
     "@angular/core": "^16.0.0",
     "@angular/forms": "^16.0.0",
-    "intl-tel-input": "^17.0.0"
+    "intl-tel-input": "^18.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.0",
