@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.9.0
+
+- `intl-tel-input 18` support, thanks to [nabilelmahiri](https://github.com/nabilelmahiri).
+- 
 ## v0.8.0
 
 - `angular 16` migration.
