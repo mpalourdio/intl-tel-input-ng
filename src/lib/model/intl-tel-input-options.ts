@@ -95,7 +95,7 @@ export interface IntlTelInputOptions {
      * Allows to translate the countries by its given iso code e.g.:
      * { 'de': 'Deutschland' }
      */
-    localizedCountries?: { [key: string]: string };
+    i18n?: { [key: string]: string };
     /**
      * Allow users to enter national numbers (and not have to think about
      * international dial codes). Formatting, validation and placeholders still
@@ -118,7 +118,6 @@ export interface IntlTelInputOptions {
     placeholderNumberType?: placeholderNumberType;
     /**
      * Specify the countries to appear at the top of the list.
-     * Default = ["us", "gb"]
      */
     preferredCountries?: string[];
     /**
@@ -128,7 +127,7 @@ export interface IntlTelInputOptions {
      * dial code separated.
      * Default = false
      */
-    separateDialCode?: boolean;
+    showSelectedDialCode?: boolean;
     /**
      * Enable formatting/validation etc. by specifying the URL of the included utils.js script
      * (or alternatively just point it to the file on cdnjs.com). The script is fetched when the page has finished

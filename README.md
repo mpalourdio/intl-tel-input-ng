@@ -58,7 +58,7 @@ See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) 
         [required]="true"
         [options]="{
             preferredCountries: ['ch'],
-            localizedCountries: { ch: 'Suisse' },
+            i18n: { ch: 'Suisse' },
             onlyCountries: ['fr', 'ch']
         }"
         [onlyLocalized]="true"
