@@ -31,7 +31,7 @@ export class IntlTelInputComponent implements AfterViewInit {
     @Output() private E164PhoneNumberChange = new EventEmitter<string | null>();
     @ViewChild('intlTelInput') private _inputElement!: ElementRef;
     private _phoneNumber!: string;
-    public _intlTelInput: any;
+    private _intlTelInput: any;
 
     private static modifyCountryData(): void {
         (window as any).intlTelInputGlobals.getCountryData().forEach((country: CountryData) =>

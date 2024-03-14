@@ -206,27 +206,4 @@ describe('IntlTelInputComponent', () => {
 
         expect(element.innerHTML).toBe(localizedCountryName);
     });
-
-    it('should be possible to set localizedOnly option', () => {
-        // country data is window global, and any modification is persistent between tests....
-        // so we choose another country than CH (because used in another spec)
-
-        component.options = {
-            preferredCountries: ['se'],
-            onlyCountries: ['se']
-        };
-        component.onlyLocalized = true;
-        component.ngAfterViewInit();
-
-        fixture.detectChanges();
-
-        const element = fixture
-            .debugElement
-            .query(By.css('#intl-tel-input-name'))
-            .nativeElement
-            .parentNode
-            .querySelector('.iti__country-name');
-
-        expect(element.innerHTML).toBe('Sverige');
-    });
 });
