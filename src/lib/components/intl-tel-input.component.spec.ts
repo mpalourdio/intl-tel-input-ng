@@ -168,6 +168,7 @@ describe('IntlTelInputComponent', () => {
 
     it('should be possible to set preferredCountries option', () => {
         component.options = {
+            countrySearch: false,
             preferredCountries: ['ch'],
             onlyCountries: ['ch']
         };
