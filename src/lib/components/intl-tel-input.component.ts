@@ -25,7 +25,6 @@ export class IntlTelInputComponent implements AfterViewInit {
     @Input() label!: string;
     @Input() labelCssClass!: string;
     @Input() name = 'intl-tel-input-name';
-    @Input() onlyLocalized!: boolean;
     @Input() options: IntlTelInputOptions = {};
     @Input() required!: boolean;
     @Output() private E164PhoneNumberChange = new EventEmitter<string | null>();
@@ -33,16 +32,7 @@ export class IntlTelInputComponent implements AfterViewInit {
     private _phoneNumber!: string;
     private _intlTelInput: any;
 
-    private static modifyCountryData(): void {
-        (window as any).intlTelInputGlobals.getCountryData().forEach((country: CountryData) =>
-            country.name = country.name.replace(/.+\((.+)\)/, '$1'));
-    }
-
     ngAfterViewInit(): void {
-        if (this.onlyLocalized) {
-            IntlTelInputComponent.modifyCountryData();
-        }
-
         const intlTelInputInstance = intlTelInput;
         this._intlTelInput = intlTelInputInstance(this._inputElement.nativeElement, this.options);
     }
