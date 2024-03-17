@@ -35,7 +35,6 @@ $ npm install intl-tel-input-ng --save / yarn add intl-tel-input-ng
 
 ## Options
  - `options`: An object wrapping the `intl-tel-input` [options](https://github.com/jackocnr/intl-tel-input#options).
- - `onlyLocalized`: If `true`, displays only localized country data. See [here](https://intl-tel-input.com/node_modules/intl-tel-input/examples/gen/modify-country-data.html).
  - `label`: If specified, will generate a `label` for the input (if the name option is set too).
  - `name`: Sets `name` and `id` attributes for the input. The default value is `intl-tel-input-name`.
  - `cssClass`: The CSS class used to style the input component.
@@ -58,10 +57,9 @@ See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) 
         [required]="true"
         [options]="{
             preferredCountries: ['ch'],
-            localizedCountries: { ch: 'Suisse' },
+            i18n: { ch: 'Suisse' },
             onlyCountries: ['fr', 'ch']
         }"
-        [onlyLocalized]="true"
         [(E164PhoneNumber)]="E164PhoneNumber"></intl-tel-input>
 </form>     
 ```

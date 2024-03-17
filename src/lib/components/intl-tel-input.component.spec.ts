@@ -7,7 +7,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, NgForm } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { IntlTelInputComponent } from './intl-tel-input.component';
@@ -168,6 +168,7 @@ describe('IntlTelInputComponent', () => {
 
     it('should be possible to set preferredCountries option', () => {
         component.options = {
+            countrySearch: false,
             preferredCountries: ['ch'],
             onlyCountries: ['ch']
         };
@@ -185,11 +186,11 @@ describe('IntlTelInputComponent', () => {
         expect(element.getAttribute('data-country-code')).toBe(component.options.onlyCountries?.[0]);
     });
 
-    it('should be possible to set localizedCountries option', () => {
+    it('should be possible to set i18n option', () => {
         const localizedCountryName = 'Suisse';
         component.options = {
             preferredCountries: ['ch'],
-            localizedCountries: { ch: localizedCountryName },
+            i18n: { ch: localizedCountryName },
             onlyCountries: ['ch']
         };
         component.ngAfterViewInit();
@@ -204,28 +205,5 @@ describe('IntlTelInputComponent', () => {
             .querySelector('.iti__country-name');
 
         expect(element.innerHTML).toBe(localizedCountryName);
-    });
-
-    it('should be possible to set localizedOnly option', () => {
-        // country data is window global, and any modification is persistent between tests....
-        // so we choose another country than CH (because used in another spec)
-
-        component.options = {
-            preferredCountries: ['se'],
-            onlyCountries: ['se']
-        };
-        component.onlyLocalized = true;
-        component.ngAfterViewInit();
-
-        fixture.detectChanges();
-
-        const element = fixture
-            .debugElement
-            .query(By.css('#intl-tel-input-name'))
-            .nativeElement
-            .parentNode
-            .querySelector('.iti__country-name');
-
-        expect(element.innerHTML).toBe('Sverige');
     });
 });
