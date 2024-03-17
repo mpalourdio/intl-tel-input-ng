@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.11.0
+
+- `intl-tel-input 19`  support, thanks to [tlebreton](https://github.com/tlebreton).
+- BC: The `onlyLocalized` feature has been removed as it's not needed anymore.
+
 ## v0.10.0
 
 - `angular 17` migration.
