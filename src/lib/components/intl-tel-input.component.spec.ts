@@ -43,6 +43,7 @@ describe('IntlTelInputComponent', () => {
 
     it('should convert phone number to E164 format', () => {
         component.options = {
+            initialCountry: 'ch',
             preferredCountries: ['ch'],
             onlyCountries: ['ch', 'fr']
         };
@@ -55,6 +56,7 @@ describe('IntlTelInputComponent', () => {
 
     it('should re-set E164 phone number on countryChange', () => {
         component.options = {
+            initialCountry: 'ch',
             preferredCountries: ['ch'],
             onlyCountries: ['ch', 'fr']
         };
