@@ -55,7 +55,7 @@ export class IntlTelInputComponent implements AfterViewInit {
 
     i18nizePhoneNumber(): void {
         this.E164PhoneNumber = null;
-        if (this._intlTelInput.isValidNumberPrecise()) {
+        if (this._intlTelInput.isValidNumber()) {
             this.E164PhoneNumber = this._intlTelInput.getNumber();
         }
         this.E164PhoneNumberChange.emit(this.E164PhoneNumber);
