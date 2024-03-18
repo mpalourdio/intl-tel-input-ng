@@ -1,9 +1,13 @@
 # Changelog
 
+## v0.11.1
+
+- Revert: Use `isValidNumber` vs `isValidNumberPrecise`. See this [issue](https://github.com/mpalourdio/intl-tel-input-ng/issues/50).
+
 ## v0.11.0
 
 - `intl-tel-input 19`  support, thanks to [tlebreton](https://github.com/tlebreton).
-- BC: The `onlyLocalized` feature has been removed as it's not needed anymore.
+- BC break: The `onlyLocalized` feature has been removed as it's not needed anymore.
 
 ## v0.10.0
 
