@@ -10,7 +10,8 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ControlContainer, NgForm } from '@angular/forms';
 import intlTelInput from 'intl-tel-input';
-import { CountryData, IntlTelInputOptions } from '../model/intl-tel-input-options';
+import { IntlTelInputOptions } from '../model/intl-tel-input-options';
+import { IntlTelInput } from "../model/intl-tel-input";
 
 @Component({
     selector: 'intl-tel-input',
@@ -30,14 +31,14 @@ export class IntlTelInputComponent implements AfterViewInit {
     @Output() private E164PhoneNumberChange = new EventEmitter<string | null>();
     @ViewChild('intlTelInput') private _inputElement!: ElementRef;
     private _phoneNumber!: string;
-    private _intlTelInput: any;
+    private _intlTelInput!: IntlTelInput;
 
     ngAfterViewInit(): void {
         const intlTelInputInstance = intlTelInput;
         this._intlTelInput = intlTelInputInstance(this._inputElement.nativeElement, this.options);
     }
 
-    get intlTelInput(): any {
+    get intlTelInput(): IntlTelInput {
         return this._intlTelInput;
     }
 
