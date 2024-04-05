@@ -3,6 +3,4 @@
  */
 
 export * from './lib/components/intl-tel-input.component';
-export * from './lib/model/intl-tel-input-options';
-export * from './lib/model/intl-tel-input';
 export * from './lib/intl-tel-input-ng.module';
