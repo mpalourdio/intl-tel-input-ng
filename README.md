@@ -41,6 +41,7 @@ $ npm install intl-tel-input-ng --save / yarn add intl-tel-input-ng
  - `labelCssClass`: The CSS class used to style the label associated to the input.
  - `required`: Sets the `required` && `aria-required` attributes for the input.
  - `[(E164PhoneNumber)]`: Outputs the phone number in E164 format if valid.
+ - `isMobileOnly`: (true by default) Allow `intl-tel-input` to check the number as a mobile number or not [isMobileOnly](https://github.com/jackocnr/intl-tel-input/issues/1535)
 
 See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) for more documentation.
 
@@ -60,6 +61,7 @@ See the [intl-tel-input repository](https://github.com/jackocnr/intl-tel-input) 
             i18n: { ch: 'Suisse' },
             onlyCountries: ['fr', 'ch']
         }"
+       [isMobileOnly]=false
         [(E164PhoneNumber)]="E164PhoneNumber"></intl-tel-input>
 </form>     
 ```

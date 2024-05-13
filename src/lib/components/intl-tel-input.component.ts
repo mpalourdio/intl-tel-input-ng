@@ -9,9 +9,7 @@
 
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ControlContainer, NgForm } from '@angular/forms';
-import intlTelInput from 'intl-tel-input';
-import { IntlTelInputOptions } from '../model/intl-tel-input-options';
-import { IntlTelInput } from "../model/intl-tel-input";
+import intlTelInput, {Iti, SomeOptions} from 'intl-tel-input';
 
 @Component({
     selector: 'intl-tel-input',
@@ -26,19 +24,22 @@ export class IntlTelInputComponent implements AfterViewInit {
     @Input() label!: string;
     @Input() labelCssClass!: string;
     @Input() name = 'intl-tel-input-name';
-    @Input() options: IntlTelInputOptions = {};
+    @Input() options:  SomeOptions = {};
     @Input() required!: boolean;
+    @Input() isMobileOnly: boolean = true;
+
     @Output() private E164PhoneNumberChange = new EventEmitter<string | null>();
+
     @ViewChild('intlTelInput') private _inputElement!: ElementRef;
+
     private _phoneNumber!: string;
-    private _intlTelInput!: IntlTelInput;
+    private _intlTelInput!: Iti;
 
     ngAfterViewInit(): void {
-        const intlTelInputInstance = intlTelInput;
-        this._intlTelInput = intlTelInputInstance(this._inputElement.nativeElement, this.options);
+        this._intlTelInput = intlTelInput(this._inputElement.nativeElement, this.options);
     }
 
-    get intlTelInput(): IntlTelInput {
+    get intlTelInput(): Iti {
         return this._intlTelInput;
     }
 
@@ -56,7 +57,7 @@ export class IntlTelInputComponent implements AfterViewInit {
 
     i18nizePhoneNumber(): void {
         this.E164PhoneNumber = null;
-        if (this._intlTelInput.isValidNumber()) {
+        if (this._intlTelInput.isValidNumber(this.isMobileOnly)) {
             this.E164PhoneNumber = this._intlTelInput.getNumber();
         }
         this.E164PhoneNumberChange.emit(this.E164PhoneNumber);
