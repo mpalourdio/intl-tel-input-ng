@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.12.0
+
+- `angular 18` migration.
+ 
 ## v0.11.1
 
 - Revert: Use `isValidNumber` vs `isValidNumberPrecise`. See this [issue](https://github.com/mpalourdio/intl-tel-input-ng/issues/50).
