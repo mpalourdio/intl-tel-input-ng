@@ -15,7 +15,7 @@ Use the fork, Luke. PR without tests will likely not be merged.
 
 ## What is it ?
 
-It's an angular component to easily integrate [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
+It's an angular standalone component to easily integrate [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
 
 ## Installation
 

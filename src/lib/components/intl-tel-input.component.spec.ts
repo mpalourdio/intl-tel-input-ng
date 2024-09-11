@@ -18,10 +18,8 @@ describe('IntlTelInputComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [
-                IntlTelInputComponent,
-            ],
             imports: [
+                IntlTelInputComponent,
                 FormsModule,
             ],
             providers: [

@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.13.0
+- Embrace standalone components and get rid of `NgModule`.
+
 ## v0.12.0
 
 - `angular 18` migration.
