@@ -8,15 +8,18 @@
  */
 
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ControlContainer, NgForm } from '@angular/forms';
+import { ControlContainer, FormsModule, NgForm } from '@angular/forms';
 import intlTelInput from 'intl-tel-input';
 import { IntlTelInputOptions } from '../model/intl-tel-input-options';
 import { IntlTelInput } from "../model/intl-tel-input";
+import { NgClass } from "@angular/common";
 
 @Component({
     selector: 'intl-tel-input',
+    standalone: true,
     templateUrl: './intl-tel-input.component.html',
     styleUrls: ['./intl-tel-input.component.scss'],
+    imports: [NgClass, FormsModule],
     viewProviders: [{ provide: ControlContainer, useExisting: NgForm }]
 })
 export class IntlTelInputComponent implements AfterViewInit {
