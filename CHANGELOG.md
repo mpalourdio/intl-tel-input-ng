@@ -1,6 +1,11 @@
 # Changelog
 
+## v0.14.0
+
+- `angular 19` migration.
+
 ## v0.13.0
+
 - Embrace standalone components and get rid of `NgModule`.
 
 ## v0.12.0
