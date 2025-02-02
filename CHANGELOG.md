@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.15.0
+
+- Drop `@Input` in favor of `signals`.
+
 ## v0.14.0
 
 - `angular 19` migration.
