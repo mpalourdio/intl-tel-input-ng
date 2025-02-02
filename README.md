@@ -31,7 +31,6 @@ $ npm install intl-tel-input-ng --save / yarn add intl-tel-input-ng
 
 - Add `node_modules/intl-tel-input/build/js/utils.js` to the `scripts` section in your `angular.json`.  
 - Add `node_modules/intl-tel-input/build/css/intlTelInput.css` to the `styles` section in your `angular.json`.
-- Import ``IntlTelInputNgModule.forRoot()`` in your main application module.
 
 ## Options
  - `options`: An object wrapping the `intl-tel-input` [options](https://github.com/jackocnr/intl-tel-input#options).

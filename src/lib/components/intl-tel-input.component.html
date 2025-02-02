@@ -1,14 +1,14 @@
-@if (label && name) {
-    <label [attr.for]="name" [ngClass]="labelCssClass" >{{ label }}</label>
+@if (label() && name()) {
+    <label [attr.for]="name()" [ngClass]="labelCssClass()" >{{ label() }}</label>
 }
 <input
     type="text"
-    [ngClass]="cssClass"
-    [attr.id]="name"
-    [attr.name]="name"
-    [name]="name"
-    [attr.aria-required]="required || null"
-    [required]="required"
+    [ngClass]="cssClass()"
+    [attr.id]="name()"
+    [attr.name]="name()"
+    [name]="name()"
+    [attr.aria-required]="required() || null"
+    [required]="required()"
     [(ngModel)]="phoneNumber"
     (countrychange)="i18nizePhoneNumber()"
     #intlTelInput>

@@ -7,7 +7,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, model, ViewChild } from '@angular/core';
 import { ControlContainer, FormsModule, NgForm } from '@angular/forms';
 import intlTelInput from 'intl-tel-input';
 import { IntlTelInputOptions } from '../model/intl-tel-input-options';
@@ -24,21 +24,20 @@ import { NgClass } from "@angular/common";
 })
 export class IntlTelInputComponent implements AfterViewInit {
 
-    @Input() cssClass!: string;
-    @Input() E164PhoneNumber!: string | null;
-    @Input() label!: string;
-    @Input() labelCssClass!: string;
-    @Input() name = 'intl-tel-input-name';
-    @Input() options: IntlTelInputOptions = {};
-    @Input() required!: boolean;
-    @Output() private E164PhoneNumberChange = new EventEmitter<string | null>();
+    cssClass = model<string>();
+    label = model<string>();
+    labelCssClass = model<string>();
+    name = model<string>('intl-tel-input-name');
+    options = model<IntlTelInputOptions>({});
+    required = model<boolean>(false);
+    E164PhoneNumber = model<string | null>();
     @ViewChild('intlTelInput') private _inputElement!: ElementRef;
     private _phoneNumber!: string;
     private _intlTelInput!: IntlTelInput;
 
     ngAfterViewInit(): void {
         const intlTelInputInstance = intlTelInput;
-        this._intlTelInput = intlTelInputInstance(this._inputElement.nativeElement, this.options);
+        this._intlTelInput = intlTelInputInstance(this._inputElement.nativeElement, this.options());
     }
 
     get intlTelInput(): IntlTelInput {
@@ -58,10 +57,9 @@ export class IntlTelInputComponent implements AfterViewInit {
     }
 
     i18nizePhoneNumber(): void {
-        this.E164PhoneNumber = null;
+        this.E164PhoneNumber.set(null);
         if (this._intlTelInput.isValidNumber()) {
-            this.E164PhoneNumber = this._intlTelInput.getNumber();
+            this.E164PhoneNumber.set(this._intlTelInput.getNumber());
         }
-        this.E164PhoneNumberChange.emit(this.E164PhoneNumber);
     }
 }
