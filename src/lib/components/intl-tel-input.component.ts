@@ -24,14 +24,14 @@ import { NgClass } from "@angular/common";
 })
 export class IntlTelInputComponent implements AfterViewInit {
 
-    cssClass = model<string>();
-    label = model<string>();
-    labelCssClass = model<string>();
-    name = model<string>('intl-tel-input-name');
-    options = model<IntlTelInputOptions>({});
-    required = model<boolean>(false);
-    E164PhoneNumber = model<string | null>();
-    @ViewChild('intlTelInput') private _inputElement!: ElementRef;
+    readonly cssClass = model<string>();
+    readonly label = model<string>();
+    readonly labelCssClass = model<string>();
+    readonly name = model<string>('intl-tel-input-name');
+    readonly options = model<IntlTelInputOptions>({});
+    readonly required = model<boolean>(false);
+    readonly E164PhoneNumber = model<string | null>();
+    @ViewChild('intlTelInput') private readonly _inputElement!: ElementRef;
     private _phoneNumber!: string;
     private _intlTelInput!: IntlTelInput;
 
