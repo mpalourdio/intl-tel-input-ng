@@ -100,7 +100,7 @@ export interface IntlTelInputOptions {
      * Allows to translate the countries by its given iso code e.g.:
      * { 'de': 'Deutschland' }
      */
-    i18n?: { [key: string]: string };
+    i18n?: Record<string, string>;
     /**
      * Allow users to enter national numbers (and not have to think about
      * international dial codes). Formatting, validation and placeholders still
