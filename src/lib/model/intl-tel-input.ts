@@ -1,4 +1,4 @@
-export type IntlTelInput = {
+export interface IntlTelInput {
     setNumber(a: string): void
 
     isValidNumber(): boolean
