@@ -7,12 +7,12 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { AfterViewInit, Component, ElementRef, model, ViewChild } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, input, model, ViewChild } from '@angular/core';
 import { ControlContainer, FormsModule, NgForm } from '@angular/forms';
 import intlTelInput from 'intl-tel-input';
+import { IntlTelInput } from '../model/intl-tel-input';
 import { IntlTelInputOptions } from '../model/intl-tel-input-options';
-import { IntlTelInput } from "../model/intl-tel-input";
-import { NgClass } from "@angular/common";
 
 @Component({
     selector: 'intl-tel-input',
@@ -24,12 +24,12 @@ import { NgClass } from "@angular/common";
 })
 export class IntlTelInputComponent implements AfterViewInit {
 
-    readonly cssClass = model<string>();
-    readonly label = model<string>();
-    readonly labelCssClass = model<string>();
-    readonly name = model<string>('intl-tel-input-name');
-    readonly options = model<IntlTelInputOptions>({});
-    readonly required = model<boolean>(false);
+    readonly cssClass = input<string>();
+    readonly label = input<string>();
+    readonly labelCssClass = input<string>();
+    readonly name = input<string>('intl-tel-input-name');
+    readonly options = input<IntlTelInputOptions>({});
+    readonly required = input<boolean>(false);
     readonly E164PhoneNumber = model<string | null>();
     @ViewChild('intlTelInput') private readonly _inputElement!: ElementRef;
     private _phoneNumber!: string;
