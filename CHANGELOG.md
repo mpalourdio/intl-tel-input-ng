@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.16.0
+
+- Drop `model()` in favor of `input()`.
+
 ## v0.15.0
 
 - Drop `@Input` in favor of `signals`.

@@ -40,7 +40,7 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should convert phone number to E164 format', () => {
-        component.options.set({
+        fixture.componentRef.setInput('options', {
             preferredCountries: ['ch'],
             onlyCountries: ['ch', 'fr']
         });
@@ -52,7 +52,7 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should re-set E164 phone number on countryChange', () => {
-        component.options.set({
+        fixture.componentRef.setInput('options', {
             preferredCountries: ['ch'],
             onlyCountries: ['ch', 'fr']
         });
@@ -70,7 +70,7 @@ describe('IntlTelInputComponent', () => {
 
     it('should add a label tag if label attribute is set', () => {
         const labelText = 'label text';
-        component.label.set(labelText);
+        fixture.componentRef.setInput('label', labelText);
         fixture.detectChanges();
 
         const element = fixture
@@ -91,7 +91,7 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should not have a css class by default for the label', () => {
-        component.label.set('label');
+        fixture.componentRef.setInput('label', 'label');
         fixture.detectChanges();
 
         const element = fixture
@@ -103,8 +103,8 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should be possible to specify a css class for the label', () => {
-        component.label.set('label');
-        component.labelCssClass.set('label-css-class');
+        fixture.componentRef.setInput('label', 'label');
+        fixture.componentRef.setInput('labelCssClass', 'labelCssClass');
         fixture.detectChanges();
 
         const element = fixture
@@ -116,7 +116,8 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should set both required and aria-required if specified', () => {
-        component.required.set(true);
+        fixture.componentRef.setInput('required', true);
+
         fixture.detectChanges();
 
         const element: HTMLElement = fixture
@@ -139,21 +140,22 @@ describe('IntlTelInputComponent', () => {
     });
 
     it('should set name and id to the same value', () => {
-        component.name.set('custom-name');
+        fixture.componentRef.setInput('name', 'custom-name');
         fixture.detectChanges();
 
         const element: HTMLElement = fixture
             .debugElement
             .query(By.css('input'))
             .nativeElement;
-console.log(component.name());
+
         expect(element.getAttribute('name')).toBe(component.name());
         expect(element.getAttribute('name')).toBe(element.getAttribute('id'));
     });
 
     it('should allow specifying a css class', () => {
         const cssClass = 'my-css-class';
-        component.cssClass.set(cssClass);
+        fixture.componentRef.setInput('cssClass', cssClass);
+
         fixture.detectChanges();
 
         const element: HTMLElement = fixture
@@ -165,16 +167,14 @@ console.log(component.name());
     });
 
     it('should be possible to set preferredCountries option', () => {
-        component.options.set({
+        fixture.componentRef.setInput('options', {
             countrySearch: false,
             preferredCountries: ['ch'],
             onlyCountries: ['ch']
         });
         component.ngAfterViewInit();
-
         fixture.detectChanges();
-console.log(fixture
-    .debugElement);
+
         const element = fixture
             .debugElement
             .query(By.css('#intl-tel-input-name'))
@@ -187,7 +187,7 @@ console.log(fixture
 
     it('should be possible to set i18n option', () => {
         const localizedCountryName = 'Suisse';
-        component.options.set({
+        fixture.componentRef.setInput('options', {
             preferredCountries: ['ch'],
             i18n: { ch: localizedCountryName },
             onlyCountries: ['ch']
