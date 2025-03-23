@@ -79,7 +79,7 @@ describe('IntlTelInputComponent', () => {
             .nativeElement;
 
         expect(element).not.toBe(null);
-        expect(element.innerText).toBe(labelText);
+        expect(element.textContent).toBe(labelText);
     });
 
     it('should not add a label by default', () => {
