@@ -1,6 +1,9 @@
 # Changelog
 
-## v0.16.0
+## v0.17.0
+- Be Zoneless compatible before angular 20.
+ 
+- ## v0.16.0
 
 - Drop `model()` in favor of `input()`.
 
