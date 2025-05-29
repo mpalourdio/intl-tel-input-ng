@@ -1,6 +1,6 @@
 {
   "name": "intl-tel-input-ng",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
@@ -60,7 +60,6 @@
     "ng-packagr": "^19.0.0",
     "rxjs": "^7.8.0",
     "typescript": "~5.7.2",
-    "typescript-eslint": "^8.18.0",
-    "zone.js": "~0.15.0"
+    "typescript-eslint": "^8.18.0"
   }
 }

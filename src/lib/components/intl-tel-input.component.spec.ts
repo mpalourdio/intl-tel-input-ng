@@ -11,6 +11,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, NgForm } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { IntlTelInputComponent } from './intl-tel-input.component';
+import { provideExperimentalZonelessChangeDetection } from "@angular/core";
 
 describe('IntlTelInputComponent', () => {
     let component: IntlTelInputComponent;
@@ -24,6 +25,7 @@ describe('IntlTelInputComponent', () => {
             ],
             providers: [
                 NgForm,
+                provideExperimentalZonelessChangeDetection(),
             ]
         })
             .compileComponents();
@@ -32,18 +34,18 @@ describe('IntlTelInputComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(IntlTelInputComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should convert phone number to E164 format', () => {
+    it('should convert phone number to E164 format', async () => {
         fixture.componentRef.setInput('options', {
             preferredCountries: ['ch'],
             onlyCountries: ['ch', 'fr']
         });
+        await fixture.whenStable();
         component.ngAfterViewInit();
 
         component.phoneNumber = '0797703808';
@@ -51,11 +53,12 @@ describe('IntlTelInputComponent', () => {
         expect(component.E164PhoneNumber()).toBe('+41797703808');
     });
 
-    it('should re-set E164 phone number on countryChange', () => {
+    it('should re-set E164 phone number on countryChange', async () => {
         fixture.componentRef.setInput('options', {
             preferredCountries: ['ch'],
             onlyCountries: ['ch', 'fr']
         });
+        await fixture.whenStable();
         component.ngAfterViewInit();
 
         component.phoneNumber = '0797703808';
@@ -68,10 +71,10 @@ describe('IntlTelInputComponent', () => {
         expect(component.E164PhoneNumber()).toBe('+33681215656');
     });
 
-    it('should add a label tag if label attribute is set', () => {
+    it('should add a label tag if label attribute is set', async () => {
         const labelText = 'label text';
         fixture.componentRef.setInput('label', labelText);
-        fixture.detectChanges();
+        await fixture.whenStable();
 
         const element = fixture
             .debugElement
@@ -90,9 +93,9 @@ describe('IntlTelInputComponent', () => {
         expect(element).toBeNull();
     });
 
-    it('should not have a css class by default for the label', () => {
+    it('should not have a css class by default for the label', async () => {
         fixture.componentRef.setInput('label', 'label');
-        fixture.detectChanges();
+        await fixture.whenStable();
 
         const element = fixture
             .debugElement
@@ -102,10 +105,10 @@ describe('IntlTelInputComponent', () => {
         expect(element.className).toBeFalsy();
     });
 
-    it('should be possible to specify a css class for the label', () => {
+    it('should be possible to specify a css class for the label', async () => {
         fixture.componentRef.setInput('label', 'label');
         fixture.componentRef.setInput('labelCssClass', 'labelCssClass');
-        fixture.detectChanges();
+        await fixture.whenStable();
 
         const element = fixture
             .debugElement
@@ -115,10 +118,10 @@ describe('IntlTelInputComponent', () => {
         expect(element.className).toContain(component.labelCssClass());
     });
 
-    it('should set both required and aria-required if specified', () => {
+    it('should set both required and aria-required if specified', async () => {
         fixture.componentRef.setInput('required', true);
 
-        fixture.detectChanges();
+        await fixture.whenStable();
 
         const element: HTMLElement = fixture
             .debugElement
@@ -129,7 +132,9 @@ describe('IntlTelInputComponent', () => {
         expect(element.getAttribute('aria-required')).toBe('true');
     });
 
-    it('should set a default name attribute if not specified', () => {
+    it('should set a default name attribute if not specified', async () => {
+        await fixture.whenStable();
+
         const element: HTMLElement = fixture
             .debugElement
             .query(By.css('input'))
@@ -139,9 +144,9 @@ describe('IntlTelInputComponent', () => {
         expect(element.getAttribute('name')).toBe(element.getAttribute('id'));
     });
 
-    it('should set name and id to the same value', () => {
+    it('should set name and id to the same value', async () => {
         fixture.componentRef.setInput('name', 'custom-name');
-        fixture.detectChanges();
+        await fixture.whenStable();
 
         const element: HTMLElement = fixture
             .debugElement
@@ -152,11 +157,11 @@ describe('IntlTelInputComponent', () => {
         expect(element.getAttribute('name')).toBe(element.getAttribute('id'));
     });
 
-    it('should allow specifying a css class', () => {
+    it('should allow specifying a css class', async () => {
         const cssClass = 'my-css-class';
         fixture.componentRef.setInput('cssClass', cssClass);
 
-        fixture.detectChanges();
+        await fixture.whenStable();
 
         const element: HTMLElement = fixture
             .debugElement
@@ -166,14 +171,16 @@ describe('IntlTelInputComponent', () => {
         expect(element.className).toContain(cssClass);
     });
 
-    it('should be possible to set preferredCountries option', () => {
+    it('should be possible to set preferredCountries option', async () => {
         fixture.componentRef.setInput('options', {
             countrySearch: false,
             preferredCountries: ['ch'],
             onlyCountries: ['ch']
         });
+
+        await fixture.whenStable();
+
         component.ngAfterViewInit();
-        fixture.detectChanges();
 
         const element = fixture
             .debugElement
@@ -185,16 +192,17 @@ describe('IntlTelInputComponent', () => {
         expect(element.getAttribute('data-country-code')).toBe(component.options().onlyCountries?.[0]);
     });
 
-    it('should be possible to set i18n option', () => {
+    it('should be possible to set i18n option', async () => {
         const localizedCountryName = 'Suisse';
         fixture.componentRef.setInput('options', {
             preferredCountries: ['ch'],
             i18n: { ch: localizedCountryName },
             onlyCountries: ['ch']
         });
-        component.ngAfterViewInit();
 
-        fixture.detectChanges();
+        await fixture.whenStable();
+
+        component.ngAfterViewInit();
 
         const element = fixture
             .debugElement
