@@ -1,6 +1,11 @@
 # Changelog
 
+## v0.18.0
+
+- `angular 20` migration.
+
 ## v0.17.0
+
 - Be Zoneless compatible before angular 20.
  
 - ## v0.16.0
