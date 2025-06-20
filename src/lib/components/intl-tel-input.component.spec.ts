@@ -11,7 +11,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, NgForm } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { IntlTelInputComponent } from './intl-tel-input.component';
-import { provideExperimentalZonelessChangeDetection } from "@angular/core";
+import { provideZonelessChangeDetection } from "@angular/core";
 
 describe('IntlTelInputComponent', () => {
     let component: IntlTelInputComponent;
@@ -25,7 +25,7 @@ describe('IntlTelInputComponent', () => {
             ],
             providers: [
                 NgForm,
-                provideExperimentalZonelessChangeDetection(),
+                provideZonelessChangeDetection(),
             ]
         })
             .compileComponents();
