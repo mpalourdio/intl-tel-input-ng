@@ -38,6 +38,19 @@ describe('IntlTelInputComponent', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should handle an empty phone number', async () => {
+        fixture.componentRef.setInput('options', {
+            preferredCountries: ['ch'],
+            onlyCountries: ['ch', 'fr']
+        });
+        await fixture.whenStable();
+        component.ngAfterViewInit();
+
+        component.phoneNumber = '';
+
+        expect(component.E164PhoneNumber()).toBeNull();
+    });
+
     it('should convert phone number to E164 format', async () => {
         fixture.componentRef.setInput('options', {
             preferredCountries: ['ch'],
@@ -49,6 +62,21 @@ describe('IntlTelInputComponent', () => {
         component.phoneNumber = '0797703808';
 
         expect(component.E164PhoneNumber()).toBe('+41797703808');
+    });
+
+    it('should convert phone number to E164 format by triggering user input', async () => {
+        fixture.componentRef.setInput('options', {
+            countrySearch: false,
+            preferredCountries: ['ch'],
+            onlyCountries: ['ch']
+        });
+
+        await fixture.whenStable();
+        const element = fixture.debugElement.query(By.css('input')).nativeElement;
+        element.value = '0797703808';
+        element.dispatchEvent(new Event('input'));
+
+        expect("+41797703808").toBe(component.E164PhoneNumber());
     });
 
     it('should re-set E164 phone number on countryChange', async () => {
