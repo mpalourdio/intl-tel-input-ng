@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.20.0
+
+- `angular 22` migration.
+
 ## v0.19.0
 
 - `angular 21` migration.
